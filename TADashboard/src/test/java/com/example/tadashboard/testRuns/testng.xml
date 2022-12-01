@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="TA Dashboard Suite" verbose="1">
+    <listeners>
+        <listener class-name="com.example.tadashboard.common.utilities.listener.ReportListener"/>
+    </listeners>
+    <test name="Railways Test">
+        <classes>
+        </classes>
+    </test>
+</suite>
