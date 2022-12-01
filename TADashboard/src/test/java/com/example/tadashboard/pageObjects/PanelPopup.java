@@ -1,12 +1,13 @@
 package com.example.tadashboard.pageObjects;
 
 import com.example.tadashboard.common.utilities.DriverManager;
+import com.example.tadashboard.dataObjects.ChartType;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
 public class PanelPopup extends BasePage {
-    private final By popupPanel = By.xpath("//div[@class='ui-dialog editpanelDlg']");
+    private final By popupPanel = By.xpath("//div[contains(@class,'ui-dialog editpanelDlg')]");
     private final By txtDisplayName = By.id("txtDisplayName");
     private final By ddlChartType = By.id("cbbChartType");
     private final By ddlCategory = By.id("cbbCategoryField");
@@ -56,8 +57,8 @@ public class PanelPopup extends BasePage {
         getTxtDisplayName().sendKeys(name);
     }
 
-    public void selectOptDdlChartType(String option) {
-        getDdlChartType().selectByValue(option);
+    public void selectOptDdlChartType(ChartType type) {
+        getDdlChartType().selectByValue(type.getType());
     }
 
     public void selectOtpSeries(String option) {
@@ -82,5 +83,9 @@ public class PanelPopup extends BasePage {
 
     public void clickBtnOk() {
         getBtnOk().click();
+    }
+
+    public void clickBtnCancel() {
+        getBtnCancel().click();
     }
 }

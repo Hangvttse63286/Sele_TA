@@ -3,7 +3,12 @@ package com.example.tadashboard.common.utilities;
 import com.example.tadashboard.common.constant.Browser;
 import com.example.tadashboard.common.utilities.helpers.ConfigFileReader;
 import com.example.tadashboard.dataObjects.Url;
-import org.openqa.selenium.*;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -153,6 +158,10 @@ public class DriverManager {
         return driver.findElement(getByLocator(locatorType)).getText();
     }
 
+    public static String getElementText(String locatorType, String... dynamicValues) {
+        return DriverManager.findElement(getByLocator(getDynamicXpath(locatorType, dynamicValues))).getText();
+    }
+
     public static By getByLocator(String locatorType) {
         By by = null;
         switch (locatorType.substring(0, locatorType.indexOf("=") + 1)) {
@@ -175,5 +184,16 @@ public class DriverManager {
                 throw new RuntimeException("Locator type is not supported !");
         }
         return by;
+    }
+
+    public static int getElementSize(String locatorType, String... dynamicValues) {
+        return DriverManager.findElements(getByLocator(getDynamicXpath(locatorType, dynamicValues))).size();
+    }
+
+    protected static String getDynamicXpath(String locatorType, String... values) {
+        if (locatorType.startsWith("xpath=") || locatorType.startsWith("XPATH=") || locatorType.startsWith("Xpath=")) {
+            locatorType = String.format(locatorType, (Object[]) values);
+        }
+        return locatorType;
     }
 }
