@@ -59,7 +59,7 @@ public class DA_PANEL_TC058 extends BaseTest{
         softAssert.assertFalse(panelPopup.isTxtCaptionCategoryEnabled(), AssertMessage.ELEMENT_STILL_ENABLED.getMsg() + "textbox caption category");
         softAssert.assertFalse(panelPopup.isTxtCaptionValueEnabled(), AssertMessage.ELEMENT_STILL_ENABLED.getMsg() + "textbox caption value");
         softAssert.assertTrue(panelPopup.isDdlSeriesEnabled(), AssertMessage.ELEMENT_NOT_ENABLED.getMsg() + "dropdown series");
-        softAssert.assertAll();
+        softAssert.assertAll(ChartType.PIE.getType());
 
         ExtentTestManager.logMessage(" Change Chart Type for panel");
         panelPopup.selectOptDdlChartType(ChartType.SINGLE_BAR);
@@ -69,7 +69,7 @@ public class DA_PANEL_TC058 extends BaseTest{
         softAssert.assertTrue(panelPopup.isTxtCaptionCategoryEnabled(), AssertMessage.ELEMENT_NOT_ENABLED.getMsg() + "textbox caption category");
         softAssert.assertTrue(panelPopup.isTxtCaptionValueEnabled(), AssertMessage.ELEMENT_NOT_ENABLED.getMsg() + "textbox caption value");
         softAssert.assertTrue(panelPopup.isDdlSeriesEnabled(), AssertMessage.ELEMENT_NOT_ENABLED.getMsg() + "dropdown series");
-        softAssert.assertAll();
+        softAssert.assertAll(ChartType.SINGLE_BAR.getType());
 
         ExtentTestManager.logMessage(" Change Chart Type for panel");
         panelPopup.selectOptDdlChartType(ChartType.STACKED_BAR);
@@ -79,7 +79,7 @@ public class DA_PANEL_TC058 extends BaseTest{
         softAssert.assertTrue(panelPopup.isTxtCaptionCategoryEnabled(), AssertMessage.ELEMENT_NOT_ENABLED.getMsg() + "textbox caption category");
         softAssert.assertTrue(panelPopup.isTxtCaptionValueEnabled(), AssertMessage.ELEMENT_NOT_ENABLED.getMsg() + "textbox caption value");
         softAssert.assertTrue(panelPopup.isDdlSeriesEnabled(), AssertMessage.ELEMENT_NOT_ENABLED.getMsg() + "dropdown series");
-        softAssert.assertAll();
+        softAssert.assertAll(ChartType.STACKED_BAR.getType());
 
         ExtentTestManager.logMessage(" Change Chart Type for panel");
         panelPopup.selectOptDdlChartType(ChartType.GROUP_BAR);
@@ -89,7 +89,7 @@ public class DA_PANEL_TC058 extends BaseTest{
         softAssert.assertTrue(panelPopup.isTxtCaptionCategoryEnabled(), AssertMessage.ELEMENT_NOT_ENABLED.getMsg() + "textbox caption category");
         softAssert.assertTrue(panelPopup.isTxtCaptionValueEnabled(), AssertMessage.ELEMENT_NOT_ENABLED.getMsg() + "textbox caption value");
         softAssert.assertTrue(panelPopup.isDdlSeriesEnabled(), AssertMessage.ELEMENT_NOT_ENABLED.getMsg() + "dropdown series");
-        softAssert.assertAll();
+        softAssert.assertAll(ChartType.GROUP_BAR.getType());
 
         ExtentTestManager.logMessage(" Change Chart Type for panel");
         panelPopup.selectOptDdlChartType(ChartType.LINE);
@@ -99,7 +99,7 @@ public class DA_PANEL_TC058 extends BaseTest{
         softAssert.assertTrue(panelPopup.isTxtCaptionCategoryEnabled(), AssertMessage.ELEMENT_NOT_ENABLED.getMsg() + "textbox caption category");
         softAssert.assertTrue(panelPopup.isTxtCaptionValueEnabled(), AssertMessage.ELEMENT_NOT_ENABLED.getMsg() + "textbox caption value");
         softAssert.assertTrue(panelPopup.isDdlSeriesEnabled(), AssertMessage.ELEMENT_NOT_ENABLED.getMsg() + "dropdown series");
-        softAssert.assertAll();
+        softAssert.assertAll(ChartType.LINE.getType());
 
         panelPopup.clickBtnCancel();
         panelPage.clickLnkCheckAll();
