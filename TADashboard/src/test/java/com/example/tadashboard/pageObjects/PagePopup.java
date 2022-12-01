@@ -52,12 +52,13 @@ public class PagePopup extends BasePage {
         selectForDdlParentPage(parentPage);
         getDdlNumOfCol().selectByVisibleText(String.valueOf(numOfCol));
         selectForDdlAfterPage(displayAfterPage);
-        if(getChkPublic().isSelected() != isPublic)
+        if (getChkPublic().isSelected() != isPublic)
             getChkPublic().click();
         clickBtnOk();
     }
 
     public void sendKeyToTxtPageName(String name) {
+        getTxtPageName().clear();
         getTxtPageName().sendKeys(name);
     }
 

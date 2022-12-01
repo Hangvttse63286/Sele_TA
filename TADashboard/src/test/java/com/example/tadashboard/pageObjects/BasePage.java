@@ -1,6 +1,7 @@
 package com.example.tadashboard.pageObjects;
 
 import com.example.tadashboard.common.utilities.DriverManager;
+import com.example.tadashboard.dataObjects.Constant;
 import com.example.tadashboard.dataObjects.GlobalSettingSubMenu;
 import com.example.tadashboard.dataObjects.HeadMenuTab;
 import org.openqa.selenium.By;
@@ -20,7 +21,8 @@ public class BasePage {
     private final String headMenuTabXPath = "//ul[@class='head-menu']//a[contains(text(), '%s')]";
     private final String subMnuAdministerXPath = "//..//a[.='%s']";
     private final String pageXPath = "//a[contains(text(),'%s')]";
-    private final String globalSettingMenuTabXPath = " //a[.='%s']";
+    private final String globalSettingMenuTabXPath = "//a[.='%s']";
+    private static final String CURRENT_PAGE_TAB = "xpath=//a[@class='active haschild']";
     private static final String DYNAMIC_PAGE_TAB_BY_INDEX = "xpath=//div[@id='main-menu']//li[%s]/a";
     private static final String ALL_PAGE_TABS = "xpath=//div[@id='main-menu']//a/..";
 
@@ -160,6 +162,11 @@ public class BasePage {
         getChildPage(parentPage, childPage).click();
         clickGlobalSettingMenuTab(GlobalSettingSubMenu.DELETE);
         DriverManager.acceptAlert();
+    }
+
+    public String getNameTabAtCurrentPage() {
+        DriverManager.waitVisibility(DriverManager.getByLocator(CURRENT_PAGE_TAB), Constant.LONG_TIMEOUT);
+        return DriverManager.getElementText(CURRENT_PAGE_TAB);
     }
 
     public int getIndexTabByName(String tabName) {
