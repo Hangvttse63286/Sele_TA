@@ -21,6 +21,8 @@ public class BasePage {
     private final String subMnuAdministerXPath = "//..//a[.='%s']";
     private final String pageXPath = "//a[contains(text(),'%s')]";
     private final String globalSettingMenuTabXPath = " //a[.='%s']";
+    private static final String DYNAMIC_PAGE_TAB_BY_INDEX = "xpath=//div[@id='main-menu']//li[%s]/a";
+    private static final String ALL_PAGE_TABS = "xpath=//div[@id='main-menu']//a/..";
 
     protected WebElement getHeader() {
         return DriverManager.findElement(header);
@@ -158,5 +160,18 @@ public class BasePage {
         getChildPage(parentPage, childPage).click();
         clickGlobalSettingMenuTab(GlobalSettingSubMenu.DELETE);
         DriverManager.acceptAlert();
+    }
+
+    public int getIndexTabByName(String tabName) {
+        int locate = 0;
+        int totalTab = DriverManager.getElementSize(ALL_PAGE_TABS);
+        for (int index = 1; index <= totalTab; index++) {
+            String text = DriverManager.getElementText(DYNAMIC_PAGE_TAB_BY_INDEX, String.valueOf(index));
+            if (text.equals(tabName)) {
+                locate = index;
+                break;
+            }
+        }
+        return locate;
     }
 }
