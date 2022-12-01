@@ -21,6 +21,8 @@ public class BasePage {
     private final String subMnuAdministerXPath = "//..//a[.='%s']";
     private final String pageXPath = "//a[contains(text(),'%s')]";
     private final String globalSettingMenuTabXPath = " //a[.='%s']";
+    private static final String DYNAMIC_PAGE_TAB_BY_INDEX = "xpath=//div[@id='main-menu']//li[%s]/a";
+    private static final String ALL_PAGE_TABS = "xpath=//div[@id='main-menu']//a/..";
 
     protected WebElement getHeader() {
         return DriverManager.findElement(header);
@@ -158,5 +160,57 @@ public class BasePage {
         getChildPage(parentPage, childPage).click();
         clickGlobalSettingMenuTab(GlobalSettingSubMenu.DELETE);
         DriverManager.acceptAlert();
+    }
+
+    public int getIndexTabByName(String tabName) {
+        int locate = 0;
+        int totalTab = getElementSize(ALL_PAGE_TABS);
+        for (int index = 1; index <= totalTab; index++) {
+            String text = getElementText(DYNAMIC_PAGE_TAB_BY_INDEX, String.valueOf(index));
+            if (text.equals(tabName)) {
+                locate = index;
+                break;
+            }
+        }
+        return locate;
+    }
+
+    protected String getDynamicXpath(String locatorType, String... values) {
+        if (locatorType.startsWith("xpath=") || locatorType.startsWith("XPATH=") || locatorType.startsWith("Xpath=")) {
+            locatorType = String.format(locatorType, (Object[]) values);
+        }
+        return locatorType;
+    }
+
+    private By getByLocator(String locatorType) {
+        By by = null;
+        switch (locatorType.substring(0, locatorType.indexOf("=") + 1)) {
+            case "id=":
+                by = By.id(locatorType.substring(3));
+                break;
+            case "class=":
+                by = By.className(locatorType.substring(6));
+                break;
+            case "name=":
+                by = By.name(locatorType.substring(5));
+                break;
+            case "css=":
+                by = By.cssSelector(locatorType.substring(4));
+                break;
+            case "xpath=":
+                by = By.xpath(locatorType.substring(6));
+                break;
+            default:
+                throw new RuntimeException("Locator type is not supported !");
+        }
+        return by;
+    }
+
+    protected String getElementText(String locatorType, String... dynamicValues) {
+        return DriverManager.findElement(getByLocator(getDynamicXpath(locatorType, dynamicValues))).getText();
+    }
+
+    protected int getElementSize(String locatorType, String... dynamicValues) {
+        return DriverManager.findElements(getByLocator(getDynamicXpath(locatorType, dynamicValues))).size();
     }
 }
