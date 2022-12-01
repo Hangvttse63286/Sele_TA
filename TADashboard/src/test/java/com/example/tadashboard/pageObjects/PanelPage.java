@@ -4,12 +4,16 @@ import com.example.tadashboard.common.utilities.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import static com.example.tadashboard.common.utilities.DriverManager.getByLocator;
+import static com.example.tadashboard.common.utilities.DriverManager.getDynamicXpath;
+
 public class PanelPage extends BasePage {
     private final By lnkAddNew = By.xpath("//div[@class='panel_tag2']//a[.='Add New']");
     private final By lnkDelete = By.xpath("//div[@class='panel_tag2']//a[.='Delete']");
     private final By lnkCheckAll = By.xpath("//table//a[.='Check All']");
     private final By lnkUnCheckAll = By.xpath("//table//a[.='UnCheck All']");
     private final String rowPanelXPath = "//table//a[.='%s']//ancestor::tr";
+    private final String DYNAMIC_ACTION_FOR_PANEL_NAME = "xpath=//a[.='%s']/../..//a[.='%s']";
 
     private WebElement getLnkAddNew() {
         return DriverManager.findElement(lnkAddNew);
@@ -53,5 +57,9 @@ public class PanelPage extends BasePage {
 
     public void clickLnkUnCheckAll() {
         getLnkUnCheckAll().click();
+    }
+
+    public void clickEditByName(String namePanel, String action) {
+        DriverManager.findElement(getByLocator(getDynamicXpath(DYNAMIC_ACTION_FOR_PANEL_NAME, namePanel, action))).click();
     }
 }
