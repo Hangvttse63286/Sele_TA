@@ -3,24 +3,15 @@ package com.example.tadashboard.common.utilities;
 import com.example.tadashboard.common.constant.Browser;
 import com.example.tadashboard.common.utilities.helpers.ConfigFileReader;
 import com.example.tadashboard.dataObjects.Url;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.time.Duration;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class DriverManager {
     private static WebDriver driver;
@@ -156,5 +147,33 @@ public class DriverManager {
 
     public static String getPageTitle() {
         return driver.getTitle();
+    }
+
+    public static String getElementText(String locatorType) {
+        return driver.findElement(getByLocator(locatorType)).getText();
+    }
+
+    public static By getByLocator(String locatorType) {
+        By by = null;
+        switch (locatorType.substring(0, locatorType.indexOf("=") + 1)) {
+            case "id=":
+                by = By.id(locatorType.substring(3));
+                break;
+            case "class=":
+                by = By.className(locatorType.substring(6));
+                break;
+            case "name=":
+                by = By.name(locatorType.substring(5));
+                break;
+            case "css=":
+                by = By.cssSelector(locatorType.substring(4));
+                break;
+            case "xpath=":
+                by = By.xpath(locatorType.substring(6));
+                break;
+            default:
+                throw new RuntimeException("Locator type is not supported !");
+        }
+        return by;
     }
 }

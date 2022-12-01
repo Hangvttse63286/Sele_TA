@@ -11,4 +11,8 @@ public class Constant {
     public static final String PARENT_PAGE = "Test";
     public static final String CHILD_PAGE_1 = "Test Child 1";
     public static final String CHILD_PAGE_2 = "Test Child 2";
+    public static final String FIRST_PAGE = "Page 1";
+    public static final String SECOND_PAGE = "Page 2";
+    public static final String THIRD_PAGE = "Page 3";
+    public static final long LONG_TIMEOUT = 20;
 }
