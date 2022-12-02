@@ -6,6 +6,14 @@
     </listeners>
     <test name="Railways Test">
         <classes>
+            <class name="com.example.tadashboard.testcases.DA_LOGIN_TC003"/>
+            <class name="com.example.tadashboard.testcases.DA_LOGIN_TC008"/>
+            <class name="com.example.tadashboard.testcases.DA_MP_TC013"/>
+            <class name="com.example.tadashboard.testcases.DA_MP_TC018"/>
+            <class name="com.example.tadashboard.testcases.DA_MP_TC023"/>
+            <class name="com.example.tadashboard.testcases.DA_PANEL_TC028"/>
+            <class name="com.example.tadashboard.testcases.DA_PANEL_TC033"/>
+            <class name="com.example.tadashboard.testcases.DA_PANEL_TC058"/>
         </classes>
     </test>
 </suite>

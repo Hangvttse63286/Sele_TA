@@ -47,10 +47,10 @@ public class DA_PANEL_TC058 extends BaseTest{
         panelPopup.selectOtpSeries("name");
         panelPopup.clickBtnOk();
 
-        ExtentTestManager.logMessage(" Click Edit link");
+        ExtentTestManager.logMessage("Click Edit link");
         panelPage.clickLnkOfRowPanel(panelName, "Edit");
 
-        ExtentTestManager.logMessage(" Change Chart Type for panel");
+        ExtentTestManager.logMessage("Change Chart Type for panel");
         panelPopup.selectOptDdlChartType(ChartType.PIE);
 
         ExtentTestManager.logMessage("Verify that Category and Caption are disabled Series is enabled");
@@ -61,7 +61,7 @@ public class DA_PANEL_TC058 extends BaseTest{
         softAssert.assertTrue(panelPopup.isDdlSeriesEnabled(), AssertMessage.ELEMENT_NOT_ENABLED.getMsg() + "dropdown series");
         softAssert.assertAll(ChartType.PIE.getType());
 
-        ExtentTestManager.logMessage(" Change Chart Type for panel");
+        ExtentTestManager.logMessage("Change Chart Type for panel");
         panelPopup.selectOptDdlChartType(ChartType.SINGLE_BAR);
 
         ExtentTestManager.logMessage("Verify that Category is disabled Series and Caption are enabled");
@@ -71,7 +71,7 @@ public class DA_PANEL_TC058 extends BaseTest{
         softAssert.assertTrue(panelPopup.isDdlSeriesEnabled(), AssertMessage.ELEMENT_NOT_ENABLED.getMsg() + "dropdown series");
         softAssert.assertAll(ChartType.SINGLE_BAR.getType());
 
-        ExtentTestManager.logMessage(" Change Chart Type for panel");
+        ExtentTestManager.logMessage("Change Chart Type for panel");
         panelPopup.selectOptDdlChartType(ChartType.STACKED_BAR);
 
         ExtentTestManager.logMessage("Verify that all of them are enabled");
@@ -81,7 +81,7 @@ public class DA_PANEL_TC058 extends BaseTest{
         softAssert.assertTrue(panelPopup.isDdlSeriesEnabled(), AssertMessage.ELEMENT_NOT_ENABLED.getMsg() + "dropdown series");
         softAssert.assertAll(ChartType.STACKED_BAR.getType());
 
-        ExtentTestManager.logMessage(" Change Chart Type for panel");
+        ExtentTestManager.logMessage("Change Chart Type for panel");
         panelPopup.selectOptDdlChartType(ChartType.GROUP_BAR);
 
         ExtentTestManager.logMessage("Verify that all of them are enabled");
@@ -91,7 +91,7 @@ public class DA_PANEL_TC058 extends BaseTest{
         softAssert.assertTrue(panelPopup.isDdlSeriesEnabled(), AssertMessage.ELEMENT_NOT_ENABLED.getMsg() + "dropdown series");
         softAssert.assertAll(ChartType.GROUP_BAR.getType());
 
-        ExtentTestManager.logMessage(" Change Chart Type for panel");
+        ExtentTestManager.logMessage("Change Chart Type for panel");
         panelPopup.selectOptDdlChartType(ChartType.LINE);
 
         ExtentTestManager.logMessage("Verify that all of them are enabled");

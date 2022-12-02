@@ -190,7 +190,7 @@ public class DriverManager {
         return DriverManager.findElements(getByLocator(getDynamicXpath(locatorType, dynamicValues))).size();
     }
 
-    protected static String getDynamicXpath(String locatorType, String... values) {
+    public static String getDynamicXpath(String locatorType, String... values) {
         if (locatorType.startsWith("xpath=") || locatorType.startsWith("XPATH=") || locatorType.startsWith("Xpath=")) {
             locatorType = String.format(locatorType, (Object[]) values);
         }
