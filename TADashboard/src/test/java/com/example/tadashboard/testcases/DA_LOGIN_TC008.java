@@ -15,10 +15,10 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 @Listeners(ReportListener.class)
-public class DA_LOGIN_TC008 extends BaseTest{
+public class DA_LOGIN_TC008 extends BaseTest {
 
     @Test(description = "Verify that password with special characters is working correctly")
-    public void DA_LOGIN_TC008_SpecialCharsPassword() throws InterruptedException {
+    public void DA_LOGIN_TC008() throws InterruptedException {
         ExtentTestManager.logMessage("DA_LOGIN_TC008: Verify that password with special characters is working correctly");
 
         ExtentTestManager.logMessage("Navigate to Dashboard login page");

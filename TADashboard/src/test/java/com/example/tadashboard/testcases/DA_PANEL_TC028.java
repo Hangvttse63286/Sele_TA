@@ -17,10 +17,10 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 @Listeners(ReportListener.class)
-public class DA_PANEL_TC028 extends BaseTest{
+public class DA_PANEL_TC028 extends BaseTest {
 
     @Test(description = "Verify that when 'Add New Panel' form is on focused all other control/form is disabled or locked.")
-    public void DA_PANEL_TC028_AddAdditionalSiblingPageToParentPage() throws InterruptedException {
+    public void DA_PANEL_TC028() throws InterruptedException {
         ExtentTestManager.logMessage("DA_PANEL_TC028: Verify that when 'Add New Panel' form is on focused all other control/form is disabled or locked.");
 
         ExtentTestManager.logMessage("Navigate to Dashboard login page");
