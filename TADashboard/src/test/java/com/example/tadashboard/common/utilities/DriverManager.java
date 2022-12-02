@@ -84,6 +84,10 @@ public class DriverManager {
         explicitlyWait(duration).until(ExpectedConditions.visibilityOfElementLocated(by));
     }
 
+    public static void waitVisibility(WebElement element, long duration) {
+        explicitlyWait(duration).until(ExpectedConditions.visibilityOf(element));
+    }
+
     public static WebElement waitToBeClickable(WebElement element, long duration) {
         return explicitlyWait(duration).until(ExpectedConditions.elementToBeClickable(element));
     }
@@ -159,7 +163,7 @@ public class DriverManager {
     }
 
     public static String getElementText(String locatorType, String... dynamicValues) {
-        return DriverManager.findElement(getByLocator(getDynamicXpath(locatorType, dynamicValues))).getText();
+        return findElement(getByLocator(getDynamicXpath(locatorType, dynamicValues))).getText();
     }
 
     public static By getByLocator(String locatorType) {
@@ -187,7 +191,7 @@ public class DriverManager {
     }
 
     public static int getElementSize(String locatorType, String... dynamicValues) {
-        return DriverManager.findElements(getByLocator(getDynamicXpath(locatorType, dynamicValues))).size();
+        return findElements(getByLocator(getDynamicXpath(locatorType, dynamicValues))).size();
     }
 
     public static String getDynamicXpath(String locatorType, String... values) {

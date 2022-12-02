@@ -3,6 +3,7 @@ package com.example.tadashboard.pageObjects;
 import com.example.tadashboard.common.utilities.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class LoginPage {
     private final By ddlRepository = By.id("repository");
@@ -10,8 +11,8 @@ public class LoginPage {
     private final By txtPassword = By.id("password");
     private final By btnLogin = By.cssSelector(".btn-login");
 
-    private WebElement getDdlRepository() {
-        return DriverManager.findElement(ddlRepository);
+    private Select getDdlRepository() {
+        return new Select(DriverManager.findElement(ddlRepository));
     }
 
     private WebElement getTxtUsername() {
@@ -32,5 +33,9 @@ public class LoginPage {
         getTxtPassword().sendKeys(password);
         getBtnLogin().click();
         Thread.sleep(500);
+    }
+
+    public void selectRepository(String repo) {
+        getDdlRepository().selectByVisibleText(repo);
     }
 }

@@ -16,4 +16,6 @@ public class Constant {
     public static final String THIRD_PAGE = "Page 3";
     public static final long LONG_TIMEOUT = 20;
     public static final String DISPLAY_NAME = "giang - panel";
+    public static final String REPOSITORY_NAME = "SampleRepository";
 }
+
