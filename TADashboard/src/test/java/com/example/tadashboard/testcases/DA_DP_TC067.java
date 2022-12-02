@@ -18,7 +18,7 @@ public class DA_DP_TC067 extends BaseTest {
 
     @Test(description = "Verify that Data Profiles are listed alphabetically")
     public void DA_DP_TC067() throws InterruptedException {
-        ExtentTestManager.logMessage("DA_MP_TC013: Verify that Data Profiles are listed alphabetically");
+        ExtentTestManager.logMessage("DA_DP_TC067: Verify that Data Profiles are listed alphabetically");
         LoginPage loginPage = new LoginPage();
         DashboardPage dashboardPage = new DashboardPage();
 

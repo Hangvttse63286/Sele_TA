@@ -18,7 +18,7 @@ import org.testng.annotations.Test;
 public class DA_PANEL_TC033 extends BaseTest {
     @Test(description = "Verify that 'Data Profile' listing of 'Add New Panel' and 'Edit Panel' control/form are in alphabetical order")
     public void DA_PANEL_TC033() throws InterruptedException {
-        ExtentTestManager.logMessage("DA_MP_TC033: Verify that 'Data Profile' listing of 'Add New Panel' and 'Edit Panel' control/form are in alphabetical order");
+        ExtentTestManager.logMessage("DA_PANEL_TC033: Verify that 'Data Profile' listing of 'Add New Panel' and 'Edit Panel' control/form are in alphabetical order");
         LoginPage loginPage = new LoginPage();
         DashboardPage dashboardPage = new DashboardPage();
         PanelPopup panelPopup = new PanelPopup();

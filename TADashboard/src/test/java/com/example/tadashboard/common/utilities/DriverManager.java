@@ -3,7 +3,12 @@ package com.example.tadashboard.common.utilities;
 import com.example.tadashboard.common.constant.Browser;
 import com.example.tadashboard.common.utilities.helpers.ConfigFileReader;
 import com.example.tadashboard.dataObjects.Url;
-import org.openqa.selenium.*;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -78,6 +83,7 @@ public class DriverManager {
     public static void waitVisibility(By by, long duration) {
         explicitlyWait(duration).until(ExpectedConditions.visibilityOfElementLocated(by));
     }
+
     public static void waitVisibility(WebElement element, long duration) {
         explicitlyWait(duration).until(ExpectedConditions.visibilityOf(element));
     }
@@ -157,7 +163,7 @@ public class DriverManager {
     }
 
     public static String getElementText(String locatorType, String... dynamicValues) {
-        return DriverManager.findElement(getByLocator(getDynamicXpath(locatorType, dynamicValues))).getText();
+        return findElement(getByLocator(getDynamicXpath(locatorType, dynamicValues))).getText();
     }
 
     public static By getByLocator(String locatorType) {
@@ -185,7 +191,7 @@ public class DriverManager {
     }
 
     public static int getElementSize(String locatorType, String... dynamicValues) {
-        return DriverManager.findElements(getByLocator(getDynamicXpath(locatorType, dynamicValues))).size();
+        return findElements(getByLocator(getDynamicXpath(locatorType, dynamicValues))).size();
     }
 
     public static String getDynamicXpath(String locatorType, String... values) {
