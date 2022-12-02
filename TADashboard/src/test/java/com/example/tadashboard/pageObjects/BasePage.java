@@ -35,6 +35,7 @@ public class BasePage {
     }
 
     protected WebElement getMnuGlobalSettingMenu() {
+        DriverManager.waitVisibility(mnuGlobalSettingMenu, 3);
         return getMnuMainMenu().findElement(mnuGlobalSettingMenu);
     }
 
@@ -126,7 +127,7 @@ public class BasePage {
     }
 
     public void clickPageTab(String page) {
-        getPageTab(page).click();
+        DriverManager.waitToBeClickable(getPageTab(page), 3).click();
     }
 
     public void clickHeadMenuTab(HeadMenuTab tab) {
@@ -143,7 +144,6 @@ public class BasePage {
     }
 
     public void clickGlobalSettingMenuTab(GlobalSettingSubMenu tab) {
-        DriverManager.waitVisibility(getMnuGlobalSettingMenu(), Constant.LONG_TIMEOUT);
         hoverMnuGlobalSettingMenu();
         getGlobalSettingMenuTab(tab).click();
     }
@@ -153,17 +153,17 @@ public class BasePage {
     }
 
     public void deletePage(String page) throws InterruptedException {
-        Thread.sleep(500);
         clickPageTab(page);
         clickGlobalSettingMenuTab(GlobalSettingSubMenu.DELETE);
         DriverManager.acceptAlert();
+        DriverManager.refresh();
     }
 
     public void deleteChildPage(String parentPage, String childPage) throws InterruptedException {
-        Thread.sleep(500);
-        getChildPage(parentPage, childPage).click();
+        DriverManager.waitToBeClickable(getChildPage(parentPage, childPage), 3).click();
         clickGlobalSettingMenuTab(GlobalSettingSubMenu.DELETE);
         DriverManager.acceptAlert();
+        DriverManager.refresh();
     }
 
     public String getNameTabAtCurrentPage() {

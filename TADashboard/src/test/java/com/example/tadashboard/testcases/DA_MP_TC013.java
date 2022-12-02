@@ -35,6 +35,7 @@ public class DA_MP_TC013 extends BaseTest {
         pagePopup.sendKeyToTxtPageName(Constant.FIRST_PAGE);
         ExtentTestManager.logMessage("Click OK button");
         pagePopup.clickBtnOk();
+        pagePopup.waitUntilPopupDisappear();
 
         //add page 2
         ExtentTestManager.logMessage("Go to Global Setting -> Add page");
@@ -46,6 +47,7 @@ public class DA_MP_TC013 extends BaseTest {
         pagePopup.selectForDdlAfterPage(Constant.FIRST_PAGE);
         ExtentTestManager.logMessage("Click OK button");
         pagePopup.clickBtnOk();
+        pagePopup.waitUntilPopupDisappear();
 
         ExtentTestManager.logMessage("Verify 'Part 2' page is positioned besides the 'Part 1' page");
         Assert.assertTrue(dashboardPage.getIndexTabByName(Constant.SECOND_PAGE) == (dashboardPage.getIndexTabByName(Constant.FIRST_PAGE) + 1));
