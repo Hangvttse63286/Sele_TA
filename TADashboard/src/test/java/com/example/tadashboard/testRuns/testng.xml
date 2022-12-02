@@ -15,6 +15,7 @@
             <class name="com.example.tadashboard.testcases.DA_PANEL_TC033"/>
             <class name="com.example.tadashboard.testcases.DA_PANEL_TC058"/>
             <class name="com.example.tadashboard.testcases.DA_DP_TC067"/>
+            <class name="com.example.tadashboard.testcases.DA_DP_TC072"/>
         </classes>
     </test>
 </suite>
