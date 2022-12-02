@@ -89,7 +89,8 @@ public class BasePage {
         }
     }
 
-    public void clickSubMnuAdminister(HeadMenuTab subTab) {
+    public void clickSubMnuAdminister(HeadMenuTab subTab) throws InterruptedException {
+        DriverManager.waitVisibility(getHeadMenuTab(HeadMenuTab.ADMINISTER), Constant.LONG_TIMEOUT);
         hoverHeadMenuTab(HeadMenuTab.ADMINISTER);
         getSubMnuAdminister(subTab).click();
     }

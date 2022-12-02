@@ -3,12 +3,7 @@ package com.example.tadashboard.common.utilities;
 import com.example.tadashboard.common.constant.Browser;
 import com.example.tadashboard.common.utilities.helpers.ConfigFileReader;
 import com.example.tadashboard.dataObjects.Url;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -82,6 +77,9 @@ public class DriverManager {
 
     public static void waitVisibility(By by, long duration) {
         explicitlyWait(duration).until(ExpectedConditions.visibilityOfElementLocated(by));
+    }
+    public static void waitVisibility(WebElement element, long duration) {
+        explicitlyWait(duration).until(ExpectedConditions.visibilityOf(element));
     }
 
     public static WebElement waitToBeClickable(WebElement element, long duration) {

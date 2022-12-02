@@ -19,6 +19,8 @@ public class PanelPopup extends BasePage {
     private final By txtCaptionValue = By.id("txtValueYAxis");
     private final By btnOk = By.id("OK");
     private final By btnCancel = By.id("Cancel");
+    public static final String DDL_OPTIONS_OF_DATA_PROFILE = "xpath=//td[.='Data Profile']/..//option";
+    public static final String DYNAMIC_OPTION_AT_DATA_PROFILE_BY_INDEX = "xpath=//select[@class='panelProfile']/option[%s]";
 
     private WebElement getPopupPanel() {
         return DriverManager.findElement(popupPanel);
@@ -91,9 +93,6 @@ public class PanelPopup extends BasePage {
     public void clickBtnCancel() {
         getBtnCancel().click();
     }
-
-    public static final String DDL_OPTIONS_OF_DATA_PROFILE = "xpath=//td[.='Data Profile']/..//option";
-    public static final String DYNAMIC_OPTION_AT_DATA_PROFILE_BY_INDEX = "xpath=//select[@class='panelProfile']/option[%s]";
 
     public boolean validateSortingDataProfile() {
         int count = DriverManager.getElementSize(DDL_OPTIONS_OF_DATA_PROFILE);
