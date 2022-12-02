@@ -40,6 +40,7 @@ public class DA_PANEL_TC033 extends BaseTest {
         panelPopup.selectOtpSeries("name");
         ExtentTestManager.logMessage("Click on OK button");
         panelPopup.clickBtnOk();
+        panelPopup.waitUntilPopupDisappear();
 
         ExtentTestManager.logMessage("Click on Edit link");
         panelPage.clickEditByName(Constant.DISPLAY_NAME, "Edit");

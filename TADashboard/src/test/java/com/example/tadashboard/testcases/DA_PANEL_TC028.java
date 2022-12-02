@@ -11,6 +11,7 @@ import com.example.tadashboard.dataObjects.Url;
 import com.example.tadashboard.pageObjects.DashboardPage;
 import com.example.tadashboard.pageObjects.LoginPage;
 import com.example.tadashboard.pageObjects.PanelPage;
+import com.example.tadashboard.pageObjects.PanelPopup;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
@@ -38,6 +39,8 @@ public class DA_PANEL_TC028 extends BaseTest {
 
         ExtentTestManager.logMessage("Click Add New link");
         panelPage.clickLnkAddNew();
+        PanelPopup panelPopup = new PanelPopup();
+        panelPopup.waitUntilPopupDisplayed();
 
         ExtentTestManager.logMessage("Try to click other controls when Add New Panel dialog is opening");
         ExtentTestManager.logMessage("Verify that all control/form are disabled or locked when Add New Panel dialog is opening");

@@ -37,6 +37,7 @@ public class DA_MP_TC018 extends BaseTest {
         pagePopup.sendKeyToTxtPageName(Constant.PARENT_PAGE);
         ExtentTestManager.logMessage("Click OK button");
         pagePopup.clickBtnOk();
+        pagePopup.waitUntilPopupDisappear();
 
         //add child page 1
         ExtentTestManager.logMessage("Go to Global Setting -> Add page");
@@ -48,6 +49,7 @@ public class DA_MP_TC018 extends BaseTest {
         pagePopup.selectForDdlParentPage(Constant.PARENT_PAGE);
         ExtentTestManager.logMessage("Click OK button");
         pagePopup.clickBtnOk();
+        pagePopup.waitUntilPopupDisappear();
 
         //add child page 2
         ExtentTestManager.logMessage("Go to Global Setting -> Add page");
@@ -59,6 +61,7 @@ public class DA_MP_TC018 extends BaseTest {
         pagePopup.selectForDdlParentPage(Constant.PARENT_PAGE);
         ExtentTestManager.logMessage("Click OK button");
         pagePopup.clickBtnOk();
+        pagePopup.waitUntilPopupDisappear();
 
         ExtentTestManager.logMessage("Check 'Test Child 2' is added successfully");
         Assert.assertTrue(dashboardPage.isChildPageAdded(Constant.PARENT_PAGE, Constant.CHILD_PAGE_2), AssertMessage.ELEMENT_NOT_DISPLAYED.getMsg() + "Page " + Constant.CHILD_PAGE_2);

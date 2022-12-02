@@ -5,7 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-public class PagePopup extends BasePage {
+public class PagePopup {
     private final By popupPage = By.id("div_popup");
     private final By txtPageName = By.id("name");
     private final By ddlParentPage = By.id("parent");
@@ -72,10 +72,17 @@ public class PagePopup extends BasePage {
 
     public void clickBtnOk() throws InterruptedException {
         getBtnOk().click();
-        Thread.sleep(500);
     }
 
     public void clickBtnCancel() {
         getBtnCancel().click();
+    }
+
+    public void waitUntilPopupDisplayed() {
+        DriverManager.waitVisibility(getPopupPage(), 3);
+    }
+
+    public void waitUntilPopupDisappear() {
+        DriverManager.waitInVisibility(getPopupPage(), 3);
     }
 }

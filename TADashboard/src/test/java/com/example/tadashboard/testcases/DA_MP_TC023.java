@@ -34,6 +34,7 @@ public class DA_MP_TC023 extends BaseTest {
         pagePopup.sendKeyToTxtPageName(Constant.FIRST_PAGE);
         pagePopup.selectForDdlAfterPage("Overview");
         pagePopup.clickBtnOk();
+        pagePopup.waitUntilPopupDisappear();
 
         //add child page 1
         ExtentTestManager.logMessage("Go to Global Setting -> Add page");
@@ -45,6 +46,7 @@ public class DA_MP_TC023 extends BaseTest {
         pagePopup.selectForDdlParentPage(Constant.FIRST_PAGE);
         ExtentTestManager.logMessage("Click OK button");
         pagePopup.clickBtnOk();
+        pagePopup.waitUntilPopupDisappear();
 
         ExtentTestManager.logMessage("Go to the first created page");
         dashboardPage.clickPageTab("Page 1");
@@ -54,6 +56,7 @@ public class DA_MP_TC023 extends BaseTest {
         pagePopup.sendKeyToTxtPageName(Constant.THIRD_PAGE);
         ExtentTestManager.logMessage("Click Ok button on Edit Page dialog");
         pagePopup.clickBtnOk();
+        pagePopup.waitUntilPopupDisappear();
 
         ExtentTestManager.logMessage("Observe the current page");
         Assert.assertEquals(dashboardPage.getNameTabAtCurrentPage(), Constant.THIRD_PAGE);

@@ -46,6 +46,7 @@ public class DA_PANEL_TC058 extends BaseTest {
         panelPopup.selectOptDdlChartType(ChartType.PIE);
         panelPopup.selectOtpSeries("name");
         panelPopup.clickBtnOk();
+        panelPopup.waitUntilPopupDisappear();
 
         ExtentTestManager.logMessage("Click Edit link");
         panelPage.clickLnkOfRowPanel(panelName, "Edit");

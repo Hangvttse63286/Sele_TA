@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PanelPopup extends BasePage {
+public class PanelPopup {
     private final By popupPanel = By.xpath("//div[contains(@class,'ui-dialog editpanelDlg')]");
     private final By txtDisplayName = By.id("txtDisplayName");
     private final By ddlChartType = By.id("cbbChartType");
@@ -104,5 +104,13 @@ public class PanelPopup extends BasePage {
         List<String> list2 = list;
         list.sort(String.CASE_INSENSITIVE_ORDER);
         return list2.equals(list);
+    }
+
+    public void waitUntilPopupDisplayed() {
+        DriverManager.waitVisibility(getPopupPanel(), 3);
+    }
+
+    public void waitUntilPopupDisappear() {
+        DriverManager.waitInVisibility(getPopupPanel(), 3);
     }
 }

@@ -88,6 +88,10 @@ public class DriverManager {
         explicitlyWait(duration).until(ExpectedConditions.visibilityOf(element));
     }
 
+    public static void waitInVisibility(WebElement element, long duration) {
+        explicitlyWait(duration).until(ExpectedConditions.invisibilityOf(element));
+    }
+
     public static WebElement waitToBeClickable(WebElement element, long duration) {
         return explicitlyWait(duration).until(ExpectedConditions.elementToBeClickable(element));
     }
@@ -199,5 +203,9 @@ public class DriverManager {
             locatorType = String.format(locatorType, (Object[]) values);
         }
         return locatorType;
+    }
+
+    public static void refresh() {
+        driver.navigate().refresh();
     }
 }
