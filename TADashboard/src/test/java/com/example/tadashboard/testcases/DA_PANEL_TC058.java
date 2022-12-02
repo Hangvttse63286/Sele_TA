@@ -17,10 +17,10 @@ import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
 @Listeners(ReportListener.class)
-public class DA_PANEL_TC058 extends BaseTest{
+public class DA_PANEL_TC058 extends BaseTest {
 
     @Test(description = "Verify that 'Category', 'Series' and 'Caption' field are enabled and disabled correctly corresponding to each type of the 'Chart Type'")
-    public void DA_PANEL_TC058_AddAdditionalSiblingPageToParentPage() throws InterruptedException {
+    public void DA_PANEL_TC058() throws InterruptedException {
         ExtentTestManager.logMessage("DA_PANEL_TC058: Verify that 'Category', 'Series' and 'Caption' field are enabled and disabled correctly corresponding to each type of the 'Chart Type'");
 
         ExtentTestManager.logMessage("Navigate to Dashboard login page");

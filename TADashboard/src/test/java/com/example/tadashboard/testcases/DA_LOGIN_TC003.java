@@ -14,10 +14,10 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 @Listeners(ReportListener.class)
-public class DA_LOGIN_TC003 extends BaseTest{
+public class DA_LOGIN_TC003 extends BaseTest {
 
     @Test(description = "Verify that user fails to log in specific repository successfully via Dashboard login page with correct username and incorrect password")
-    public void DA_LOGIN_TC003_InvalidPassword() throws InterruptedException {
+    public void DA_LOGIN_TC003() throws InterruptedException {
         ExtentTestManager.logMessage("DA_LOGIN_TC003: Verify that user fails to log in specific repository successfully via Dashboard login page with correct username and incorrect password");
 
         ExtentTestManager.logMessage("Navigate to Dashboard login page");

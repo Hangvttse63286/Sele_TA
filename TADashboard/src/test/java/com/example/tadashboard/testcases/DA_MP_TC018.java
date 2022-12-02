@@ -15,10 +15,10 @@ import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 @Listeners(ReportListener.class)
-public class DA_MP_TC018 extends BaseTest{
+public class DA_MP_TC018 extends BaseTest {
 
     @Test(description = "Verify that user is able to add additional sibling pages to the parent page successfully")
-    public void DA_MP_TC018_AddAdditionalSiblingPageToParentPage() throws InterruptedException {
+    public void DA_MP_TC018() throws InterruptedException {
         ExtentTestManager.logMessage("DA_MP_TC018: Verify that user is able to add additional sibling pages to the parent page successfully");
 
         ExtentTestManager.logMessage("Navigate to Dashboard login page");
@@ -61,7 +61,7 @@ public class DA_MP_TC018 extends BaseTest{
         pagePopup.clickBtnOk();
 
         ExtentTestManager.logMessage("Check 'Test Child 2' is added successfully");
-        Assert.assertTrue(dashboardPage.isChildPageAdded(Constant.PARENT_PAGE, Constant.CHILD_PAGE_2), AssertMessage.ELEMENT_NOT_DISPLAYED.getMsg() + "Page "+ Constant.CHILD_PAGE_2);
+        Assert.assertTrue(dashboardPage.isChildPageAdded(Constant.PARENT_PAGE, Constant.CHILD_PAGE_2), AssertMessage.ELEMENT_NOT_DISPLAYED.getMsg() + "Page " + Constant.CHILD_PAGE_2);
 
         dashboardPage.deleteChildPage(Constant.PARENT_PAGE, Constant.CHILD_PAGE_2);
         dashboardPage.deleteChildPage(Constant.PARENT_PAGE, Constant.CHILD_PAGE_1);
